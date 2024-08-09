@@ -15,8 +15,7 @@ function formatImagePath(imageName: string | undefined): string {
 
 @Component({
   selector: 'app-user',
-  standalone: true,
-  imports: [],
+  standalone: false,
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
 })
