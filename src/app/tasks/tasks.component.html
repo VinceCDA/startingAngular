@@ -1,20 +1,14 @@
-@if (isAddingTask === true) {
-    <app-new-task [userId]="userId" (close)="onCloseNewTask()"/>
-}
-<section id="tasks">
-    
-    <header>
-        <h2>{{name}}'s Tasks</h2>
-        
-        <menu>
-            <button (click)="onClickNewTask()">Add Task</button>
-        </menu>
-    </header>
-    <ul>
-        @for (task of selectedUserTasks; track task.id) {
-            <li>
-                <app-task [task]="task"/>
-            </li>
-        }
-    </ul>
-</section>
+<p>
+  <a routerLink="./" [queryParams]="{order:order === 'asc' ? 'desc' : 'asc'}">
+    Sort {{order === 'asc' ? 'Ascending' :'Descending'}}
+  </a>
+</p>
+<ul>
+  @for (task of userTasks(); track task.id) {
+  <li>
+    <app-task [task]="task" />
+  </li>
+  } @empty {
+  <p>There are no tasks yet. Start adding some!</p>
+  }
+</ul>

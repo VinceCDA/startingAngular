@@ -1,20 +1,9 @@
-<app-header/>
+<app-header />
+
 <main>
-    <ul id="users">
-        @for (user of users; track user.id) 
-        {
-            <li>
-                <app-user [user]="user" [isSelected]="user.id === selectedUserId" (selected)="onSelectUser($event)"/>
-            </li>
-        }
-    </ul>
-    @if (selectedUser) 
-    {
-        <app-tasks [userId]="selectedUser.id" [name]="selectedUser.name"/>
-    }
-    @else 
-    {
-        <p id="fallback">Select a user to see their tasks!</p>
-    }
-    
+  <app-users />
+
+  <div>
+    <router-outlet />
+  </div>
 </main>
